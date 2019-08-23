@@ -138,11 +138,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.zoho.com'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'noreply@tecnodesign.com.py'
-EMAIL_HOST_PASSWORD = 'noreplyTecno475869'
-DEFAULT_FROM_EMAIL = 'noreply@tecnodesign.com.py'
+EMAIL_HOST_USER = 'noreply@spem.org.py'
+EMAIL_HOST_PASSWORD = 'Spem2019!'
+DEFAULT_FROM_EMAIL = 'noreply@spem.org.py'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-SERVER_EMAIL = 'noreply@tecnodesign.com.py'
+SERVER_EMAIL = 'noreply@spem.org.py'
 
 
 
