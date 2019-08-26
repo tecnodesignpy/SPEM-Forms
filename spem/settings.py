@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # App's
     'forms_builder.forms',
     'ckeditor',
+    'apps.web'
 ]
 
 MIDDLEWARE = [

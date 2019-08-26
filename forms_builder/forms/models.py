@@ -21,6 +21,7 @@ from forms_builder.forms import settings
 from forms_builder.forms.utils import now, slugify, unique_slug
 
 from ckeditor.fields import RichTextField
+from apps.web.models import *
 
 
 
@@ -65,6 +66,8 @@ class AbstractForm(models.Model):
 
     sites = models.ManyToManyField(Site,
         default=[settings.SITE_ID], related_name="%(app_label)s_%(class)s_forms")
+    evento = models.ForeignKey(Evento, on_delete=models.CASCADE, default='', blank=True, null=True)
+    titulo_boton    = models.CharField(max_length=100, blank=True, null=True)
     title = models.CharField(_("Title"), max_length=50)
     slug = models.SlugField(_("Slug"), editable=settings.EDITABLE_SLUGS,
         max_length=100, unique=True)

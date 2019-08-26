@@ -1,0 +1,8 @@
+env
+*.pyc
+__ pycache __
+apps/web/migrations
+node_modules
+.DS_Store
+media
+db.sqlite3

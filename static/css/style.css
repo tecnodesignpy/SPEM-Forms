@@ -161,7 +161,7 @@ a.btn_1,
 .btn_1 {
   border: none;
   color: #fff;
-  background: #04ccf0;
+  background: #109ab3;
   outline: none;
   cursor: pointer;
   display: inline-block;
@@ -185,7 +185,7 @@ a.btn_1,
 }
 a.btn_1:hover,
 .btn_1:hover {
-  background-color: #d80075;
+  background-color: #109ab3;
 }
 a.btn_1.full-width,
 .btn_1.full-width {

@@ -31,6 +31,11 @@
 	
 	<!-- MODERNIZR MENU -->
 	<script src="{% static 'js/modernizr.js' %}"></script>
+	<style type="text/css">
+		.owl-item{
+			width: 400px !important;
+		}
+	</style>
 
 </head>
 
@@ -81,6 +86,8 @@
 
 	<!-- Wizard script -->
 	<script src="{% static 'js/registration_func.js' %}"></script>
+	{% block extrajs %}
+	{% endblock %}
 
 </body>
 </html>

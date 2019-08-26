@@ -22,6 +22,7 @@ import forms_builder.forms.urls # add this import
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^forms/', include(forms_builder.forms.urls)),
+    url(r'^', include('apps.web.urls')),
 ]
 
 

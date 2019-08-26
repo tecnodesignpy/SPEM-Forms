@@ -1,0 +1,73 @@
+{% extends "forms/base.html" %}   
+{% load staticfiles %}
+
+{% block content %} 
+
+	
+	<section style="background-color: #04ccf0;">
+		<div id="sub_content_in">
+			<img src="{% static 'logo/logo.png' %}" width="25%" alt="" class="img-fluid">
+			<h1>I CONGRESO PARAGUAYO DE EMERGENTOLOGÍA</h1>
+			<p>10 - 11 - 12 DE OCTUBRE</p>
+		</div>
+	</section>
+	<!-- /section -->
+	<main id="general_page">
+		<div class="container margin_60">
+			<div class="main_title">
+				<h2><em></em>Formularios</h2>
+			</div>	
+			<!--Team Carousel -->
+			<div class="row" style="display: grid;">
+				<center>
+				{% for form in forms %}
+					<a href="/forms/{{ form.slug }}" class="btn_1 white">{{ form.titulo_boton }}</a>
+				{% endfor %}
+				</center>
+			</div>
+			<!--End Team Carousel-->
+		</div>
+		<!-- End container -->
+	</main>
+	
+	<footer class="clearfix">
+		<div class="container">
+			<p>© {% now 'Y' %} Vanarb</p>
+			<ul>
+		</div>
+	</footer>
+{% endblock %}
+
+{% block extrajs %}
+	<!-- SPECIFIC SCRIPTS -->
+	<script src="{% static 'js/parallax.min.js' %}"></script>
+	<script src="{% static 'js/owl-carousel.js' %}"></script>
+	<script>
+	"use strict";
+	$(".team-carousel").owlCarousel({
+			items: 1,
+			loop: false,
+			margin: 10,
+			autoplay: false,
+			smartSpeed: 300,
+			responsiveClass: false,
+			responsive: {
+				320: {
+					items: 1,
+				},
+				768: {
+					items: 1,
+				},
+				1000: {
+					items: 2,
+				}
+			}
+		});
+	</script>
+{% endblock %}
+
+
+
+
+
+
