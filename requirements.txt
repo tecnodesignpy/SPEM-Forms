@@ -1,0 +1,11 @@
+Django==2.0.13
+django-ckeditor==5.7.1
+django-email-extras==0.3.4
+django-forms-builder==0.14.0
+django-js-asset==1.2.2
+future==0.15.0
+Pillow==6.1.0
+python-gnupg==0.4.5
+pytz==2019.2
+sphinx-me==0.3
+Unidecode==1.1.1
