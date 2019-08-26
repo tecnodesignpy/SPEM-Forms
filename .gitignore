@@ -2,6 +2,7 @@ env
 *.pyc
 __ pycache __
 apps/web/migrations
+forms_builder/forms/migrations
 node_modules
 .DS_Store
 media
