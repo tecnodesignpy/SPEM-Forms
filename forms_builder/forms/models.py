@@ -72,6 +72,7 @@ class AbstractForm(models.Model):
     slug = models.SlugField(_("Slug"), editable=settings.EDITABLE_SLUGS,
         max_length=100, unique=True)
     flyer = models.ImageField(default='', blank=True, null=True, upload_to='flyers')
+    logos = models.ImageField(default='', blank=True, null=True, upload_to='logos')
     content = RichTextField(blank=True)
     intro = models.TextField(_("Intro"), blank=True)
     button_text = models.CharField(_("Button text"), max_length=50,
