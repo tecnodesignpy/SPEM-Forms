@@ -147,4 +147,16 @@ SERVER_EMAIL = 'noreply@spem.org.py'
 
 
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+    },
+}
+
+
+
+
+
+
+
 
