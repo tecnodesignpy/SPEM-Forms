@@ -15,12 +15,17 @@ from django.template import RequestContext
 from django.utils.http import urlquote
 from django.views.generic.base import TemplateView
 from email_extras.utils import send_mail_template
+from django.core.mail import EmailMultiAlternatives, get_connection
 
 from forms_builder.forms.forms import FormForForm
 from forms_builder.forms.models import Form
 from forms_builder.forms.settings import EMAIL_FAIL_SILENTLY
 from forms_builder.forms.signals import form_invalid, form_valid
 from forms_builder.forms.utils import split_choices
+
+
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 
 class FormDetail(TemplateView):
@@ -97,13 +102,24 @@ class FormDetail(TemplateView):
         }
         email_from = form.email_from or settings.DEFAULT_FROM_EMAIL
         email_to = form_for_form.email_to()
+        '''
         if email_to and form.send_email:
             correo = send_mail_template(subject, "form_response", email_from,
                                email_to, context=context,
                                fail_silently=EMAIL_FAIL_SILENTLY)
+        '''
         headers = None
         if email_to:
             headers = {"Reply-To": email_to}
+            # Enviamos un mail al registrado
+            print("----")
+            subject, from_email, to = 'Inscripción Spem 2019', 'noreply@spem.org.py', email_to
+            html_content = render_to_string('email_extras/emailTemplate.html', {'datos':'new_user'}) # ...
+            text_content = strip_tags(html_content) # this strips the html, so people will have the text as well.
+            msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+            msg.attach_alternative(html_content, "text/html")
+            msg.send()
+            print("----")
         email_copies = split_choices(form.email_copies)
         if email_copies:
             correo = send_mail_template(subject, "form_response_copies", email_from,
@@ -111,7 +127,6 @@ class FormDetail(TemplateView):
                                attachments=attachments,
                                fail_silently=EMAIL_FAIL_SILENTLY,
                                headers=headers)
-        print(correo)
 
 form_detail = FormDetail.as_view()
 
