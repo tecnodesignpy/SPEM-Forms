@@ -109,15 +109,15 @@ class FormDetail(TemplateView):
         headers = None
         if email_to:
             headers = {"Reply-To": email_to}
-            # Enviamos un mail al registrado
-            print("----")
-            subject, from_email, to = 'Inscripción Spem 2019', 'noreply@spem.org.py', email_to
-            html_content = render_to_string('email_extras/emailTemplate.html', {'datos':'new_user'}) # ...
-            text_content = strip_tags(html_content) # this strips the html, so people will have the text as well.
-            msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
-            msg.attach_alternative(html_content, "text/html")
-            msg.send()
-            print("----")
+        # Enviamos un mail al registrado
+        print("----")
+        subject, from_email, to = 'Inscripción Spem 2019', 'noreply@spem.org.py', email_to
+        html_content = render_to_string('email_extras/emailTemplate.html', {'datos':'new_user'}) # ...
+        text_content = strip_tags(html_content) # this strips the html, so people will have the text as well.
+        msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+        msg.attach_alternative(html_content, "text/html")
+        msg.send()
+        print("----")
         email_copies = split_choices(form.email_copies)
         if email_copies:
             correo = send_mail_template(subject, "form_response_copies", email_from,
