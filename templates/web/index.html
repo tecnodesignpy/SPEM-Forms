@@ -1,0 +1,298 @@
+{% extends "web/base.html" %}   
+{% load staticfiles %}
+
+{% block content %} 
+
+		<!-- main-gallery of the Page -->
+		{% if forms %}
+			<div class="main-gallery beans-gallery">
+				<div class="beans-mask">
+					<div class="beans-slideset">
+						{% for form in forms %}
+							<div class="beans-slide win-height">
+								<div class="container">
+									<div class="row">
+										<div class="col-xs-12 slide-content win-min-height" style="text-align: center;">
+												<a href="/forms/{{ form.slug }}" class="btn btn-default" style="position: absolute; bottom: 10px;">{{ form.titulo_boton }}</a>
+										</div>
+									</div>
+								</div>
+								<div class="bg-stretch" style="position: inherit !important;">
+									<img src="/media/{{ form.portada }}" alt="image description">
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		{% else %}
+			<div class="main-gallery beans-gallery">
+				<div class="beans-mask">
+					<div class="beans-slideset">
+						<div class="beans-slide win-height">
+							<div class="container">
+								<div class="row">
+									<div class="col-xs-12 slide-content  win-min-height">
+										<header class="slide-heading2">
+											<h1>An unjust law is itself a species of violence. Arrest for its breach is more so.</h1>
+										</header>
+									</div>
+								</div>
+							</div>
+							<div class="bg-stretch">
+								<img src="http://placehold.it/1600x819" alt="image description">
+							</div>
+						</div>
+						<div class="beans-slide  win-height">
+							<div class="container">
+								<div class="row">
+									<div class="col-xs-12 slide-content  win-min-height">
+										<header class="slide-heading2">
+											<h1>if there were no bad people, there would be no good lawyers</h1>
+										</header>
+									</div>
+								</div>
+							</div>
+							<div class="bg-stretch">
+								<img src="http://placehold.it/1600x819" alt="image description">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="btn-box">
+					<a class="btn-prev" href="#"><i class="fa fa-angle-left"></i></a>
+					<a class="btn-next" href="#"><i class="fa fa-angle-right"></i></a>
+				</div>
+			</div>
+		{% endif %}
+		<!-- contain main informative part of the site -->
+		<main id="main">
+			<!-- container-block of the page -->
+			<section class="container container-block" id="services">
+				<header class="row main-heading">
+					<div class="col-xs-12">
+						<h2>Sociedad Paraguaya de Emergencias Médicas</h2>
+					</div>
+				</header>
+				<!-- services-holder of the page -->
+				<div class="row services-holder">
+					<div class="col-sm-3 col-xs-12 services-col">
+						<div style="display: inline-block;">
+							<div class="icono" style="">
+								<img src="{% static 'web/images/logo-spem.png' %}">
+							</div>
+						</div>
+						<h2><a href="/somos">Quienes Somos</a></h2>
+						<p>Conocé más acerca de nosotros, nuestra historia y a los miembros de la sociedad.<br><br></p>
+						<a href="/somos" class="btn btn-default">Ver Más</a>
+					</div>
+					<div class="col-sm-3 col-xs-12 services-col">
+						<div style="display: inline-block;">
+							<div class="icono" style="">
+								<img src="{% static 'web/images/actividades.jpg' %}">
+							</div>
+						</div>
+						<h2><a href="/actividades">Actividades</a></h2>
+						<p>En esta sección encontras todas nuestra actividades.<br><br></p>
+						<a href="/actividades" class="btn btn-default">Ver Más</a>
+					</div>
+					<div class="col-sm-3 col-xs-12 services-col">
+						<div style="display: inline-block;">
+							<div class="icono" style="">
+								<img src="{% static 'web/images/descargas.png' %}">
+							</div>
+						</div>
+						<h2><a href="/descargas">Descargas</a></h2>
+						<p>Tenemos un lugar preparado para todas las descargas que necesites hacer.<br><br></p>
+						<a href="/descargas" class="btn btn-default">Ver Más</a>
+					</div>
+					<div class="col-sm-3 col-xs-12 services-col">
+						<div style="display: inline-block;">
+							<div class="icono" style="">
+								<img src="{% static 'web/images/admision.png' %}">
+							</div>
+						</div>
+						<h2><a href="/admision">Admisión</a></h2>
+						<p>¿Queres formar parte de la sociedad? Acá te dejamos el formulario con los requisitos.</p>
+						<a href="/admision" class="btn btn-default">Ver Más</a>
+					</div>
+				</div>
+			</section>
+			<section class="container container-block events" id="event">
+				<div class="row">
+					{% if last_expirado %}
+						<div class="col-sm-8 col-xs-12 latest-news">
+					{% else %}
+						<div class="col-sm-12 col-xs-12 latest-news">
+					{% endif %}
+						<header class="main-heading news">
+							<h2>Próximos Eventos</h2>
+						</header>
+						<!-- upcomming-events of the Page -->
+						{% for form in forms %}
+							<article class="upcomming-events">
+								<div class="events-info">
+									<div class="alignleft">
+										<a href="/forms/{{ form.slug }}">
+												<img src="/media/{{ form.portada }}" width="295" height="190" alt="image description" >
+											
+										</a>
+									</div>
+									<div class="events-txt">
+										<h2><a href="/forms/{{ form.slug }}">{{ form.title }}</a></h2>
+										<p>{{ form.intro }} <a href="/forms/{{ form.slug }}">[+]</a></p>
+									</div>
+								</div>
+							</article>
+						{% endfor %}
+					</div>
+					{% if last_expirado %}
+						<div class="col-sm-4 col-xs-12">
+							<div class="main-heading news">
+								<h2>Eventos Pasados</h2>
+							</div>
+							<!-- calender-holder of the page -->
+							<div class="calender-holder">
+						</div>
+					{% endif %}
+				</div>
+			</section>
+			<!-- contact-form  about of the page -->
+			<div id="contact">
+				<section class="container">
+					<div class="row">
+						<div class="col-xs-12 team-contact add">
+							<h2>Contactanos</h2>
+							<!-- comments-form of the page -->
+							<div class="comments-form add">
+								{% csrf_token %}
+								<div class="form-row">
+									<div class="form-group">
+										<label for="name1"><i class="fa fa-user"></i></label>
+										<input type="text" placeholder="Nombre" id="nombre" class="form-control">
+									</div>
+									<div class="form-group">
+										<label for="emailaddress"><i class="fa fa-envelope"></i></label>
+										<input type="text" placeholder="Email" id="email" class="form-control">
+									</div>
+									<div class="form-group">
+										<label for="web"><i class="fa fa-dribbble"></i></label>
+										<input type="text" placeholder="Asunto" id="asunto" class="form-control">
+									</div>
+								</div>
+								<div class="form-row textarea">
+									<div class="form-group">
+										<label for="textarea"><i class="fa fa-paper-plane"></i></label>
+										<textarea id="mensaje" placeholder="Mensaje..." id="textarea" rows="10" cols="30" class="form-control"></textarea>
+									</div>
+								</div>
+								<p id="mensaje_error" style="color: red; display: none">Debes completar todos los campos</p>
+								<button class="btn btn-default" onclick="send_mail()">Enviar</button>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+			<section class="container container-block clients2">
+				<div class="row">
+					<div class="col-xs-12">
+						<header class="main-heading">
+							<h2>Somos Miembros De</h2>
+						</header>
+					</div>
+				</div>
+				<!-- our-clients of the Page -->
+				<div class="row our-clients">
+					<div class="col-xs-12">
+						<!-- clients-carousel of the page -->
+						<div class="clients-carousel">
+							<div class="clients-mask">
+								<div class="clients-slideset">
+									<div class="clients-slide" style="text-align: center;">
+										<a href="#" class="img-holder">
+											<img style="width: 150px;" src="{% static 'web/images/miembro1.jpg' %}" alt="image description" >
+										</a>
+										<a href="#" class="img-holder">
+											<img style="width: 150px;" src="{% static 'web/images/miembro2.png' %}" alt="image description" >
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+{% endblock %}
+
+{% block extrajs %}
+
+		<script type="text/javascript">
+	        $.ajaxSetup({
+	            beforeSend: function(xhr, settings) {
+	                function getCookie(name) {
+	                    var cookieValue = null;
+	                    if (document.cookie && document.cookie != '') {
+	                        var cookies = document.cookie.split(';');
+	                        for (var i = 0; i < cookies.length; i++) {
+	                            var cookie = jQuery.trim(cookies[i]);
+	                            // Does this cookie string begin with the name we want?
+	                            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+	                                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+	                                break;
+	                            }
+	                        }
+	                    }
+	                    return cookieValue;
+	                }
+	                if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+	                    // Only send the token to relative URLs i.e. locally.
+	                    xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+	                }
+	            }
+	        });
+
+			function send_mail() {
+                var nombre    	= document.getElementById("nombre").value
+                var email    	= document.getElementById("email").value
+                var mensaje    	= document.getElementById("mensaje").value
+                var asunto    	= document.getElementById("asunto").value
+                if(nombre != '' && email != '' && mensaje != ''){
+					document.getElementById("mensaje_error").style.display = "none";
+                	var parametros = {
+	                    "nombre"           	: nombre,
+	                    "email"  			: email,
+	                    "mensaje"           : mensaje,
+	                    "asunto"           : asunto,
+	                };
+	                // AJAX SETUP
+	                $.ajax({
+	                        data:  parametros, //datos que se envian a traves de ajax
+	                        url:   '/send-email/', //archivo que recibe la peticion
+	                        type:  'POST', //método de envio
+	                        success: function(data, textStatus, jqXHR){
+	                            var valor = JSON.parse(data);
+	                            console.log(valor);
+	                            $('#alert-success').fadeIn();
+				                document.getElementById("nombre").value 	= '';
+				                document.getElementById("email").value 		= '';
+				                document.getElementById("mensaje").value 	= '';
+				                document.getElementById("asunto").value 	= '';
+	                        },
+	                        error:function(){
+	                        	console.log("ERROR");
+                            	$('#alert-error').fadeIn();
+	                        }
+	                });
+                }else{
+					document.getElementById("mensaje_error").style.display = "block";
+                }
+			}
+		</script>
+{% endblock %}
+
+
+
+
+
+

@@ -73,6 +73,7 @@ class AbstractForm(models.Model):
         max_length=100, unique=True)
     flyer = models.ImageField(default='', blank=True, null=True, upload_to='flyers')
     logos = models.ImageField(default='', blank=True, null=True, upload_to='logos')
+    portada = models.ImageField(default='', blank=True, null=True, upload_to='portadas')
     content = RichTextField(blank=True)
     intro = models.TextField(_("Intro"), blank=True)
     button_text = models.CharField(_("Button text"), max_length=50,

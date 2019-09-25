@@ -39,7 +39,7 @@ form_admin_filter_horizontal = ()
 form_admin_fieldsets = [
     (None, {"fields": ("evento", "titulo_boton", "title", ("status", "login_required",),
         ("publish_date", "expiry_date",),
-        "intro", "content", "logos", "flyer", "button_text", "response", "redirect_url")}),
+        "intro", "content", "logos", "flyer", "portada", "button_text", "response", "redirect_url")}),
     (_("Email"), {"fields": ("send_email", "email_from", "email_copies",
         "email_subject", "email_message")}),]
 
