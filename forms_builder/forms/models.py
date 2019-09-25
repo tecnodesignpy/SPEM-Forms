@@ -69,6 +69,9 @@ class AbstractForm(models.Model):
     evento = models.ForeignKey(Evento, on_delete=models.CASCADE, default='', blank=True, null=True)
     titulo_boton    = models.CharField(max_length=100, blank=True, null=True)
     title = models.CharField(_("Title"), max_length=50)
+    inicio_evento = models.DateTimeField(_("Inicio del Evento"),
+        help_text=_("Para la cuenta regresiva"),
+        blank=True, null=True)
     slug = models.SlugField(_("Slug"), editable=settings.EDITABLE_SLUGS,
         max_length=100, unique=True)
     flyer = models.ImageField(default='', blank=True, null=True, upload_to='flyers')
