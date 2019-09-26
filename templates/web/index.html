@@ -83,7 +83,7 @@
 							</div>
 						</div>
 						<h2><a href="/somos">Quienes Somos</a></h2>
-						<p>Conocé más acerca de nosotros, nuestra historia y a los miembros de la sociedad.<br><br></p>
+						<p>Somos una sociedad médica científica enfocada al área de la medicina de emergencias en adultos, afederados...<br></p>
 						<a href="/somos" class="btn btn-default">Ver Más</a>
 					</div>
 					<div class="col-sm-3 col-xs-12 services-col">
@@ -93,7 +93,7 @@
 							</div>
 						</div>
 						<h2><a href="/actividades">Actividades</a></h2>
-						<p>En esta sección encontras todas nuestra actividades.<br><br></p>
+						<p>Jornadas,  Capacitaciones, Cursos, Simposios, Congresos, Convenios.<br><br></p>
 						<a href="/actividades" class="btn btn-default">Ver Más</a>
 					</div>
 					<div class="col-sm-3 col-xs-12 services-col">
@@ -103,7 +103,7 @@
 							</div>
 						</div>
 						<h2><a href="/descargas">Descargas</a></h2>
-						<p>Tenemos un lugar preparado para todas las descargas que necesites hacer.<br><br></p>
+						<p>Presentaciones en Power Point, Trabajos de Investigación, Artículos Académicos<br><br></p>
 						<a href="/descargas" class="btn btn-default">Ver Más</a>
 					</div>
 					<div class="col-sm-3 col-xs-12 services-col">
@@ -113,7 +113,7 @@
 							</div>
 						</div>
 						<h2><a href="/admision">Admisión</a></h2>
-						<p>¿Queres formar parte de la sociedad? Acá te dejamos el formulario con los requisitos.</p>
+						<p>Formulario de Admisión, Formulario de Solicitud de Certificación, Criterios de Certificación y Re-certificación.</p>
 						<a href="/admision" class="btn btn-default">Ver Más</a>
 					</div>
 				</div>
@@ -140,6 +140,12 @@
 									</div>
 									<div class="events-txt">
 										<h2><a href="/forms/{{ form.slug }}">{{ form.title }}</a></h2>
+										<ul class="events-timer list-inline">
+											<li id="dias_{{ form.id }}"><span class="txt">Días</span></li>
+											<li id="hrs_{{ form.id }}"><span class="txt">Horas</span>120</li>
+											<li id="min_{{ form.id }}"><span class="txt">Mins</span>120</li>
+											<li id="sec_{{ form.id }}"><span class="txt">Seg</span>120</li>
+										</ul>
 										<p>{{ form.intro }} <a href="/forms/{{ form.slug }}">[+]</a></p>
 									</div>
 								</div>
@@ -210,10 +216,10 @@
 								<div class="clients-slideset">
 									<div class="clients-slide" style="text-align: center;">
 										<a href="#" class="img-holder">
-											<img style="width: 150px;" src="{% static 'web/images/miembro1.jpg' %}" alt="image description" >
+											<img style="width: 150px;-webkit-filter: unset;" src="{% static 'web/images/miembro1.jpg' %}" alt="image description" >
 										</a>
 										<a href="#" class="img-holder">
-											<img style="width: 150px;" src="{% static 'web/images/miembro2.png' %}" alt="image description" >
+											<img style="width: 150px;-webkit-filter: unset;" src="{% static 'web/images/miembro2.png' %}" alt="image description" >
 										</a>
 									</div>
 								</div>
@@ -288,6 +294,36 @@
 					document.getElementById("mensaje_error").style.display = "block";
                 }
 			}
+
+		</script>
+		<script type="text/javascript" src="{% static 'web/js/jquery.countdown.min.js' %}"></script>
+		<script type="text/javascript">
+		    $(function() {
+		        {% for form in forms %}
+		            var match_date_{{ form.id }} = new Date('{{ form.inicio_evento|date:"c" }}').getTime();
+		            //$('#matchCountdown_{{ form.id }}').countdown({ until: match_date_{{ form.id }} });
+
+					  $('#dias_{{ form.id }}').countdown(match_date_{{ form.id }} , function(event) {
+					  	console.log(event)
+						  $(this).html(event.strftime('<span class="txt">Días</span> %D'));
+						});
+
+					  $('#hrs_{{ form.id }}').countdown(match_date_{{ form.id }} , function(event) {
+					  	console.log(event)
+						  $(this).html(event.strftime('<span class="txt">Horas</span> %H'));
+						});
+
+					  $('#min_{{ form.id }}').countdown(match_date_{{ form.id }} , function(event) {
+					  	console.log(event)
+						  $(this).html(event.strftime('<span class="txt">Mins</span> %M'));
+						});
+
+					  $('#sec_{{ form.id }}').countdown(match_date_{{ form.id }} , function(event) {
+					  	console.log(event)
+						  $(this).html(event.strftime('<span class="txt">Seg</span> %S'));
+						});
+		        {% endfor %}
+		    });
 		</script>
 {% endblock %}
 
