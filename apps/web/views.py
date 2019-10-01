@@ -3,6 +3,7 @@ from django.core.mail import send_mail, EmailMultiAlternatives
 from django.http import JsonResponse
 import json
 from django.core import serializers
+from apps.web.models import *
 
 # Create your views here.
 from forms_builder.forms.models import Form
@@ -10,9 +11,31 @@ import datetime
 
 
 def index(request):
-	forms = Form.objects.published()
+	forms = Evento.objects.filter(inicio_evento__gte=datetime.date.today())
+	print(forms.count())
 	last_expirado = Form.objects.filter(expiry_date__lte=datetime.date.today()).last()
 	return render(request,'web/index.html',{'forms':forms,'evento_pasado':last_expirado})
+
+def evento(request,id):
+	evento = Evento.objects.get(id=id)
+	forms = Form.objects.filter(evento=evento)
+	return render(request,'index.html',{'forms':forms,})
+
+def admision(request):
+    return render(request,'web/index.html')
+
+def actividades(request):
+    return render(request,'web/index.html')
+
+def descargas(request):
+    return render(request,'web/index.html')
+
+def somos(request):
+    return render(request,'web/index.html')
+
+def especialistas(request):
+    return render(request,'web/index.html')
+
 
 
 

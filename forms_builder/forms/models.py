@@ -66,17 +66,15 @@ class AbstractForm(models.Model):
 
     sites = models.ManyToManyField(Site,
         default=[settings.SITE_ID], related_name="%(app_label)s_%(class)s_forms")
-    evento = models.ForeignKey(Evento, on_delete=models.CASCADE, default='', blank=True, null=True)
+    evento = models.ForeignKey(Evento, on_delete=models.CASCADE, blank=False, null=False)
     titulo_boton    = models.CharField(max_length=100, blank=True, null=True)
     title = models.CharField(_("Title"), max_length=50)
-    inicio_evento = models.DateTimeField(_("Inicio del Evento"),
-        help_text=_("Para la cuenta regresiva"),
-        blank=True, null=True)
     slug = models.SlugField(_("Slug"), editable=settings.EDITABLE_SLUGS,
         max_length=100, unique=True)
     flyer = models.ImageField(default='', blank=True, null=True, upload_to='flyers')
     logos = models.ImageField(default='', blank=True, null=True, upload_to='logos')
     portada = models.ImageField(default='', blank=True, null=True, upload_to='portadas')
+    detalles = RichTextField(blank=True)
     content = RichTextField(blank=True)
     intro = models.TextField(_("Intro"), blank=True)
     button_text = models.CharField(_("Button text"), max_length=50,
