@@ -1,1 +1,242 @@
-actividades.html
+{% extends "web/base.html" %}   
+{% load staticfiles %}
+
+{% block content %} 
+
+		<main id="main">
+			<div class="container news-posts">
+				<div class="row">
+					<div class="col-sm-8 col-md-9 col-xs-12" id="content">
+						<article class="event-post">
+							<div class="event-img">
+								<span data-picture data-alt="image description">
+									<span data-src="http://placehold.it/868x440" data-width="868" data-height="440"></span>
+									<span data-src="http://placehold.it/868x440" data-width="868" data-height="440" data-media="(-webkit-min-device-pixel-ratio:1.5), (min-resolution:1.5dppx)" ></span> <!-- retina 2x desktop -->
+									<!--[if (lt IE 9) & (!IEMobile)]>
+										<span data-src="http://placehold.it/868x440"></span>
+									<![endif]-->
+									<!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+									<noscript><img src="http://placehold.it/868x440" width="868" height="440" alt="image description" ></noscript>
+								</span>
+								<div class="event-plans">
+									<ul class="events-nav list-inline">
+										<li><span class="num">157</span> Days</li>
+										<li><span class="num">23</span> Hours</li>
+										<li><span class="num">06</span> Min</li>
+										<li><span class="num">11</span> Sec</li>
+									</ul>
+									<span class="approx-time"><strong>Approx Time:</strong>   <span class="time">10:00 hrs</span>    <span class="time">to 14:00 hrs</span></span>
+								</div>
+							</div>
+							<h2><a href="event-details.html">This is a must attend Event </a></h2>
+							<div class="events-frame">
+								<a href="#" class="btn btn-default">Jan 7 2015</a>
+								<div class="event-box">
+									<ul class="post-nav list-inline">
+										<li><a href="#"><i class="fa fa-user"></i> Written by Adam</a></li>
+										<li><a href="#"><i class="fa fa-comment"></i> 10 Comments</a></li>
+										<li><a href="#"><i class="fa fa-tag"></i> Law</a></li>
+									</ul>
+									<div class="organizers">
+										<span class="text">Organizers:</span>
+										<ul class="event-planers list-inline">
+											<li>
+												<a href="#">
+													<span data-picture data-alt="image description">
+														<span data-src="http://placehold.it/60x48" data-width="60" data-height="48"></span>
+														<span data-src="http://placehold.it/60x48" data-width="60" data-height="48" data-media="(-webkit-min-device-pixel-ratio:1.5), (min-resolution:1.5dppx)" ></span> <!-- retina 2x desktop -->
+														<!--[if (lt IE 9) & (!IEMobile)]>
+															<span data-src="http://placehold.it/60x48"></span>
+														<![endif]-->
+														<!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+														<noscript><img src="http://placehold.it/60x48" width="60" height="48" alt="image description" ></noscript>
+													</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<span data-picture data-alt="image description">
+														<span data-src="http://placehold.it/60x48" data-width="60" data-height="48"></span>
+														<span data-src="http://placehold.it/60x48" data-width="60" data-height="48" data-media="(-webkit-min-device-pixel-ratio:1.5), (min-resolution:1.5dppx)" ></span> <!-- retina 2x desktop -->
+														<!--[if (lt IE 9) & (!IEMobile)]>
+															<span data-src="http://placehold.it/60x48"></span>
+														<![endif]-->
+														<!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+														<noscript><img src="http://placehold.it/60x48" width="60" height="48" alt="image description" ></noscript>
+													</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<span data-picture data-alt="image description">
+														<span data-src="http://placehold.it/60x48" data-width="60" data-height="48"></span>
+														<span data-src="http://placehold.it/60x48" data-width="60" data-height="48" data-media="(-webkit-min-device-pixel-ratio:1.5), (min-resolution:1.5dppx)" ></span> <!-- retina 2x desktop -->
+														<!--[if (lt IE 9) & (!IEMobile)]>
+															<span data-src="http://placehold.it/60x48"></span>
+														<![endif]-->
+														<!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+														<noscript><img src="http://placehold.it/60x48" width="60" height="48" alt="image description" ></noscript>
+													</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<p>Proin semper ipsum accumsan euismod blandit. Cras faucibus consectetur diam, vitae ornare nisi interdum sed. Cras accumsan ultricies neque ac mattis. Aenean a dolor sed odio pellentesque laoreet a a ipsum. Suspendisse semper magna sed ipsum sollicitudin sagittis sed et tellus. Ut eleifend elementum eros. </p>
+							<p>Maecenas orci sapien, pulvinar non odio nec, tincidunt rhoncus tellus. Cras eget enim in odio pharetra euismod nec a leo.</p>
+							<a href="event-details.html" class="btn btn-default">Read More</a>
+						</article>
+					</div>
+					<!-- sidebar of the page -->
+					<aside class="col-sm-4 col-md-3 col-xs-12" id="sidebar">
+						<nav class="widget categories-widget">
+							<h2>Categories</h2>
+							<ul class="categoreis-nav list-unstyled">
+								<li><a href="#"><span class="txt">Web Design</span><span class="counter">389</span></a></li>
+								<li><a href="#"><span class="txt">Marketing</span><span class="counter">256</span></a></li>
+								<li><a href="#"><span class="txt">Wordpress</span><span class="counter">56</span></a></li>
+								<li><a href="#"><span class="txt">Graphic Design</span><span class="counter">43</span></a></li>
+								<li><a href="#"><span class="txt">Photography</span><span class="counter">38</span></a></li>
+								<li><a href="#"><span class="txt">eCommerce</span><span class="counter">26</span></a></li>
+								<li><a href="#"><span class="txt">Html</span><span class="counter">3</span></a></li>
+							</ul>
+						</nav>
+						<nav class="widget latest-widget">
+							<h2>lATEST Posts</h2>
+							<ul class="latest-post-nav list-unstyled">
+								<li>
+									<a href="#">Claritas est etiam processus dynamicus, qui sequitur...</a>
+									<time datetime="2015-01-01">04 February 2015</time>
+								</li>
+								<li>
+									<a href="#">Duis aytem eum iriure dolor...</a>
+									<time datetime="2015-01-01">04 February 2015</time>
+								</li>
+								<li>
+									<a href="#">Nam liber tempor cum soluta nobis eleifend option...</a>
+									<time datetime="2015-01-01">04 February 2015</time>
+								</li>
+							</ul>
+						</nav>
+						<nav class="widget archives-widget">
+							<h2>Archives</h2>
+							<ul class="archives-nav list-unstyled">
+								<li><a href="#">December 2015</a></li>
+								<li><a href="#">November 2015</a></li>
+								<li><a href="#">October 2015</a></li>
+								<li><a href="#">September 2015</a></li>
+								<li><a href="#">August 2015</a></li>
+							</ul>
+						</nav>
+						<section class="widget events-widget">
+							<h2>Latest Events</h2>
+							<div class="post-holder">
+								<div class="events-post">
+									<div class="img-holder">
+										<a href="#">
+											<span data-picture data-alt="image description">
+												<span data-src="http://placehold.it/200x141" data-width="200" data-height="141"></span>
+												<span data-src="http://placehold.it/200x141" data-width="200" data-height="141" data-media="(-webkit-min-device-pixel-ratio:1.5), (min-resolution:1.5dppx)" ></span> <!-- retina 2x desktop -->
+												<!--[if (lt IE 9) & (!IEMobile)]>
+													<span data-src="http://placehold.it/200x141"></span>
+												<![endif]-->
+												<!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+												<noscript><img src="http://placehold.it/200x141" width="200" height="141" alt="image description" ></noscript>
+											</span>
+											<div class="buttons-holder">
+												<span class="btn-zoom"><i class="fa fa-search"></i></span>
+												<span class="btn-zoom"><i class="fa fa-link"></i></span>
+											</div>
+										</a>
+									</div>
+									<p><a href="#">Claritas est etiam processus dynamicus, qui sequitur...</a></p>
+									<span class="comments">2568 Comments</span>
+								</div>
+								<div class="events-post">
+									<div class="img-holder">
+										<a href="#">
+											<span data-picture data-alt="image description">
+												<span data-src="http://placehold.it/200x141" data-width="200" data-height="141"></span>
+												<span data-src="http://placehold.it/200x141" data-width="200" data-height="141" data-media="(-webkit-min-device-pixel-ratio:1.5), (min-resolution:1.5dppx)" ></span> <!-- retina 2x desktop -->
+												<!--[if (lt IE 9) & (!IEMobile)]>
+													<span data-src="http://placehold.it/200x141"></span>
+												<![endif]-->
+												<!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+												<noscript><img src="http://placehold.it/200x141" width="200" height="141" alt="image description" ></noscript>
+											</span>
+											<div class="buttons-holder">
+												<span class="btn-zoom"><i class="fa fa-search"></i></span>
+												<span class="btn-zoom"><i class="fa fa-link"></i></span>
+											</div>
+										</a>
+									</div>
+									<p><a href="#">Duis aytem eum iriure dolor...</a></p>
+									<span class="comments">583 Comments</span>
+								</div>
+								<div class="events-post">
+									<div class="img-holder">
+										<a href="#">
+											<span data-picture data-alt="image description">
+												<span data-src="http://placehold.it/200x141" data-width="200" data-height="141"></span>
+												<span data-src="http://placehold.it/200x141" data-width="200" data-height="141" data-media="(-webkit-min-device-pixel-ratio:1.5), (min-resolution:1.5dppx)" ></span> <!-- retina 2x desktop -->
+												<!--[if (lt IE 9) & (!IEMobile)]>
+													<span data-src="http://placehold.it/200x141"></span>
+												<![endif]-->
+												<!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+												<noscript><img src="http://placehold.it/200x141" width="200" height="141" alt="image description" ></noscript>
+											</span>
+											<div class="buttons-holder">
+												<span class="btn-zoom"><i class="fa fa-search"></i></span>
+												<span class="btn-zoom"><i class="fa fa-link"></i></span>
+											</div>
+										</a>
+									</div>
+									<p><a href="#">Nam liber tempor cum soluta nobis eleifend option......</a></p>
+									<span class="comments">300 Comments</span>
+								</div>
+							</div>
+						</section>
+					</aside>
+				</div>
+			</div>
+			<section class="container container-block clients2">
+				<div class="row">
+					<div class="col-xs-12">
+						<header class="main-heading">
+							<h2>Somos Miembros De</h2>
+						</header>
+					</div>
+				</div>
+				<!-- our-clients of the Page -->
+				<div class="row our-clients">
+					<div class="col-xs-12">
+						<!-- clients-carousel of the page -->
+						<div class="clients-carousel">
+							<div class="clients-mask">
+								<div class="clients-slideset">
+									<div class="clients-slide" style="text-align: center;">
+										<a href="#" class="img-holder">
+											<img style="width: 150px;-webkit-filter: unset;" src="{% static 'web/images/miembro1.jpg' %}" alt="image description" >
+										</a>
+										<a href="#" class="img-holder">
+											<img style="width: 150px;-webkit-filter: unset;" src="{% static 'web/images/miembro2.png' %}" alt="image description" >
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+{% endblock %}
+
+{% block extrajs %}
+{% endblock %}
+
+
+
+
+
+

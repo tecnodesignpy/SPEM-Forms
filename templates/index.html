@@ -1,14 +1,20 @@
 {% extends "forms/base.html" %}   
 {% load staticfiles %}
 
-{% block content %} 
+{% block extra_css %}
+	<link rel="stylesheet" href="{% static 'web/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'web/css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'web/css/fancybox.css' %}">
+	<link rel="stylesheet" href="{% static 'web/css/all.css' %}">
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic%7cRoboto:400,100italic,100,300,300italic,400italic,500,500italic,700,700italic,900,900italic%7cOpen+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+{% endblock%}
 
-	
+{% block content %} 
 	<section style="background-color: #04ccf0;">
 		<div id="sub_content_in">
 			<img src="{% static 'logo/logo.png' %}" width="25%" alt="" class="img-fluid">
-			<h1>I CONGRESO PARAGUAYO DE EMERGENTOLOGÍA</h1>
-			<p>10 - 11 - 12 DE OCTUBRE</p>
+			<h1>{{ evento.nombre_evento }}</h1>
+			<p>{{ evento.subtitulo }}</p>
 		</div>
 	</section>
 	<!-- /section -->
@@ -21,25 +27,87 @@
 			<div class="row" style="display: grid;">
 				<center>
 				{% for form in forms %}
-					<a href="/forms/{{ form.slug }}" class="btn_1 white">{{ form.titulo_boton }}</a>
+					<a href="/forms/{{ form.slug }}" class="btn_1 white" style="font-size: 14px;">{{ form.titulo_boton }}</a>
 				{% endfor %}
+				<br><br><br>
 				</center>
+				{{ evento.descripcion_larga|safe }}
 			</div>
 			<!--End Team Carousel-->
 		</div>
 		<!-- End container -->
 	</main>
-	
-	<footer class="clearfix">
-		<div class="container">
-			<p>© {% now 'Y' %} Vanarb</p>
-			<ul>
+	<main id="main">
+		<section class="container container-block clients2">
+			<div class="row">
+				<div class="col-xs-12">
+					<header class="main-heading" style="background-color: transparent; border-bottom: none !important">
+						<h2>Somos Miembros De</h2>
+					</header>
+				</div>
+			</div>
+			<!-- our-clients of the Page -->
+			<div class="row our-clients">
+				<div class="col-xs-12">
+					<!-- clients-carousel of the page -->
+					<div class="clients-carousel">
+						<div class="clients-mask">
+							<div class="clients-slideset">
+								<div class="clients-slide" style="text-align: center;">
+									<a href="#" class="img-holder">
+										<img style="width: 150px;-webkit-filter: unset;" src="{% static 'web/images/miembro1.jpg' %}" alt="image description" >
+									</a>
+									<a href="#" class="img-holder">
+										<img style="width: 150px;-webkit-filter: unset;" src="{% static 'web/images/miembro2.png' %}" alt="image description" >
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer id="footer">
+		<div class="container holder">
+			<div class="row">
+				<div class="col-sm-5 col-xs-12 copyrights">
+					<p>&copy; Desarrollado por VANARB</a>.</p>
+				</div>
+				<div class="col-sm-7 col-xs-12 copyrights">
+					<ul class="footer-nav list-inline">
+						<li><a href="/">Inicio</a></li>
+						<li><a href="/somos">Quienes Somos</a></li>
+						<li><a href="/actividades">Actividades</a></li>
+						<li><a href="/especialistas">Especialistas</a></li>
+						<li><a href="/descargas">Descargas</a></li>
+						<li><a href="/admision">Admisión</a></li>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</footer>
 {% endblock %}
 
+
 {% block extrajs %}
 	<!-- SPECIFIC SCRIPTS -->
+	<script type="text/javascript" src="{% static 'web/js/jquery-1.11.2.min.js' %}"></script>
+	<script src="{% static 'web/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'web/js/jquery.main.js' %}"></script>
+	<script type="text/javascript" src="{% static 'web/js/jquery.datepicker.js' %}"></script>
+	<script type="text/javascript">
+	    if (navigator.userAgent.match(/IEMobile\/10\.0/) || navigator.userAgent.match(/MSIE 10.*Touch/)) {
+	        var msViewportStyle = document.createElement('style')
+	        msViewportStyle.appendChild(
+	            document.createTextNode(
+	                '@-ms-viewport{width:auto !important}'
+	            )
+	        )
+	        document.querySelector('head').appendChild(msViewportStyle)
+	    }
+	</script>
+
 	<script src="{% static 'js/parallax.min.js' %}"></script>
 	<script src="{% static 'js/owl-carousel.js' %}"></script>
 	<script>

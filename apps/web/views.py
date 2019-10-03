@@ -19,19 +19,20 @@ def index(request):
 def evento(request,id):
 	evento = Evento.objects.get(id=id)
 	forms = Form.objects.filter(evento=evento)
-	return render(request,'index.html',{'forms':forms,})
+	return render(request,'index.html',{'forms':forms, 'evento':evento})
 
 def admision(request):
     return render(request,'web/index.html')
 
 def actividades(request):
-    return render(request,'web/index.html')
+    eventos = Evento.objects.filter(inicio_evento__gte=datetime.date.today())
+    return render(request,'web/actividades.html',{'eventos':eventos})
 
 def descargas(request):
     return render(request,'web/index.html')
 
 def somos(request):
-    return render(request,'web/index.html')
+    return render(request,'web/somos.html')
 
 def especialistas(request):
     return render(request,'web/index.html')

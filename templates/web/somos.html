@@ -1,1 +1,46 @@
-somos.html
+{% extends "web/base.html" %}   
+{% load staticfiles %}
+
+{% block content %} 
+
+		<main id="main">
+			<section class="container container-block clients2">
+				<div class="row">
+					<div class="col-xs-12">
+						<header class="main-heading">
+							<h2>Somos Miembros De</h2>
+						</header>
+					</div>
+				</div>
+				<!-- our-clients of the Page -->
+				<div class="row our-clients">
+					<div class="col-xs-12">
+						<!-- clients-carousel of the page -->
+						<div class="clients-carousel">
+							<div class="clients-mask">
+								<div class="clients-slideset">
+									<div class="clients-slide" style="text-align: center;">
+										<a href="#" class="img-holder">
+											<img style="width: 150px;-webkit-filter: unset;" src="{% static 'web/images/miembro1.jpg' %}" alt="image description" >
+										</a>
+										<a href="#" class="img-holder">
+											<img style="width: 150px;-webkit-filter: unset;" src="{% static 'web/images/miembro2.png' %}" alt="image description" >
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+{% endblock %}
+
+{% block extrajs %}
+{% endblock %}
+
+
+
+
+
+
